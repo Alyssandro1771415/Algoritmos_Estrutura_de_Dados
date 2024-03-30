@@ -2,7 +2,7 @@ package Algoritmos;
 
 public class Bubble {
 
-    public void BubbleSort(int[] vetor) {
+    public void BubbleSort(double[] vetor) {
 
         int tamanho = vetor.length;
         int trocas = 0;
@@ -13,7 +13,7 @@ public class Bubble {
 
                 if (vetor[j] > vetor[j + 1]) {
 
-                    int auxiliar = vetor[j + 1];
+                    double auxiliar = vetor[j + 1];
                     vetor[j + 1] = vetor[j];
                     vetor[j] = auxiliar;
 
