@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    public int[] Merge_Sort(int[] vetor){
+    public double[] Merge_Sort(double[] vetor){
 
         Integer tamanho = vetor.length;
 
@@ -15,10 +15,10 @@ public class MergeSort {
         } else{
 
             int meio = tamanho / 2;
-            int[] vetor_esquerdo = Merge_Sort(Arrays.copyOfRange(vetor, 0, meio));
-            int[] vetor_direito = Merge_Sort(Arrays.copyOfRange(vetor, meio, vetor.length));            
+            double[] vetor_esquerdo = Merge_Sort(Arrays.copyOfRange(vetor, 0, meio));
+            double[] vetor_direito = Merge_Sort(Arrays.copyOfRange(vetor, meio, vetor.length));            
 
-            int[] vetorFinal = merge(vetor_esquerdo, vetor_direito);
+            double[] vetorFinal = merge(vetor_esquerdo, vetor_direito);
 
             return vetorFinal;
 
@@ -26,8 +26,8 @@ public class MergeSort {
 
     }
 
-    private int[] merge(int[] esquerdo, int[] direito) {
-        int[] result = new int[esquerdo.length + direito.length];
+    public double[] merge(double[] esquerdo, double[] direito) {
+        double[] result = new double[esquerdo.length + direito.length];
         int i = 0, j = 0, k = 0;
 
         while (i < esquerdo.length && j < direito.length) {

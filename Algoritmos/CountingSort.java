@@ -1,33 +1,41 @@
 package Algoritmos;
 
 public class CountingSort {
-    public void countingSort(int[] vetor, int k) {
-        if (vetor.length == 0 || k <= 0) {
-            return;
+    public void ordenacaoPorContagem(double[] array) {
+        
+        double minimo = array[0];
+        double maximo = array[0];
+        for (double valor : array) {
+          if (valor < minimo) {
+            minimo = valor;
+          } else if (valor > maximo) {
+            maximo = valor;
+          }
         }
-    
-        int maior = vetor[0];
-        for (int i = 1; i < vetor.length; i++) {
-            maior = Math.max(maior, vetor[i]);
+      
+        int[] contagem = new int[(int) (maximo - minimo + 1)];
+      
+        for (int i = 0; i < contagem.length; i++) {
+          contagem[i] = 0;
         }
-    
-        int[] contagem = new int[k + 1];
-    
-        for (int i = 0; i < vetor.length; i++) {
-            contagem[vetor[i]]++;
+      
+        for (double valor : array) {
+          contagem[(int) (valor - minimo)]++;
         }
-    
-        for (int i = 1; i <= k; i++) {
-            contagem[i] += contagem[i - 1];
+      
+        for (int i = 1; i < contagem.length; i++) {
+          contagem[i] += contagem[i - 1];
         }
-
-        int i = 0;
-        for (int j = 0; j <= k; j++) {
-            while (contagem[j] > 0) {
-                vetor[i++] = j;
-                contagem[j]--;
-            }
+      
+        double[] saida = new double[array.length];
+        for (int i = array.length - 1; i >= 0; i--) {
+          saida[contagem[(int) (array[i] - minimo)] - 1] = array[i];
+          contagem[(int) (array[i] - minimo)]--;
         }
-    }
-    
+      
+        for (int i = 0; i < array.length; i++) {
+          array[i] = saida[i];
+        }
+      }
+                
 }

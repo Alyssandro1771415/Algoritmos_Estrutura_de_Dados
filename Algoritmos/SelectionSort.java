@@ -2,7 +2,7 @@ package Algoritmos;
 
 public class SelectionSort {
 
-    public void Selection_Sort(int []vetor) {
+    public void Selection_Sort(double []vetor) {
 
         Integer tamanho = vetor.length;
 
@@ -20,7 +20,7 @@ public class SelectionSort {
 
             }
 
-            int auxiliar = vetor[i];
+            double auxiliar = vetor[i];
             vetor[i] = vetor[indexMenorValor];
             vetor[indexMenorValor] = auxiliar;
 
