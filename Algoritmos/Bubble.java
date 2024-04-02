@@ -20,7 +20,7 @@ public class Bubble {
                     trocas += 1;
 
                 }
-
+                
             }
 
             if (trocas == 0) {
@@ -31,5 +31,4 @@ public class Bubble {
 
         }
     }
-
 }
