@@ -36,8 +36,6 @@ public class Main {
                 "3M desordenado"
         };
 
-        long memoryBefore = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-
         for (double[] ds : vectors) {
 
             System.out.printf("%s=> \n", databaseNames[vectors.indexOf(ds)]);
@@ -48,11 +46,11 @@ public class Main {
 
             long memoryAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 
-            System.out.println("\tMemory used: " + (memoryAfter - memoryBefore) + " bytes");
+            System.out.println("\tMemory used: " + (memoryAfter) + " bytes");
             System.out.println("\tTotal time: " + (endTime - startTime) / 1000 + " segundos\n");
 
-            algoritmos.add(new Algoritmo("Bubble Sort", (endTime - startTime) / 1000, (memoryAfter - memoryBefore), databaseNames[vectors.indexOf(ds)]));
-            break;
+            algoritmos.add(new Algoritmo("Bubble Sort", (endTime - startTime) / 1000, (memoryAfter), databaseNames[vectors.indexOf(ds)]));
+
         }
 
         gerarCsv(algoritmos, "Results");
