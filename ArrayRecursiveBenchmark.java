@@ -7,12 +7,26 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.List;
 
-
 public class ArrayRecursiveBenchmark {
 
     public static void main(String[] args) throws IOException {
         
+        int size = 1000;
+       
+        int[] array = generateRandomArray(size);
+
+        // Executar o benchmark e obter o tempo de execução médio
+        double totalTime = 0;
+        for (int i = 0; i < 10; i++) {
+            totalTime += benchmark(array);
+        }
+
+        double averageTime = totalTime / 10;
+        System.out.println("Tempo médio de execução: " + averageTime + " segundos\n\n");
+
         ArrayList<double[]> vectors = processFiles.process_Files("./DataBases");
+
+        Bubble ordernarBubble = new Bubble();
         ArrayList<Algoritmo> algoritmos = new ArrayList<>();
 
         String[] databaseNames = {
@@ -37,24 +51,23 @@ public class ArrayRecursiveBenchmark {
         };
 
         for (double[] ds : vectors) {
-            
+
             System.out.printf("%s=> \n", databaseNames[vectors.indexOf(ds)]);
 
-            BenchmarkResult result;
-            double totalTime = 0;
-            double memory = 0;
+            long startTime = System.currentTimeMillis();
+            ordernarBubble.BubbleSort(ds);
+            long endTime = System.currentTimeMillis();
 
-            for (int i = 0; i < 10; i++) {
-                result = benchmark(ds);
-                totalTime += result.elapsedTime;
-                memory += result.memoryUsage;
-            }
+            long memoryAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 
-            double averageTime = totalTime / 10;
-            System.out.println("Tempo médio de execução: " + averageTime + " segundos");
-            algoritmos.add(new Algoritmo("Bubble Sort", (totalTime), (memory), databaseNames[vectors.indexOf(ds)]));
-            gerarCsv(algoritmos, "Results");
+            System.out.println("\tMemory used: " + (memoryAfter) + " bytes");
+            System.out.println("\tTotal time: " + (endTime - startTime) / 1000 + " segundos\n");
+
+            algoritmos.add(new Algoritmo("Bubble Sort", (endTime - startTime) / averageTime, (memoryAfter), databaseNames[vectors.indexOf(ds)]));
+
         }
+
+        gerarCsv(algoritmos, "Results");
 
     }
 
@@ -74,30 +87,15 @@ public class ArrayRecursiveBenchmark {
         return array[index] + sumArray(array, index + 1);
     }
 
-    public static class BenchmarkResult {
-        public final double elapsedTime;
-        public final long memoryUsage;
-    
-        public BenchmarkResult(double elapsedTime, long memoryUsage) {
-            this.elapsedTime = elapsedTime;
-            this.memoryUsage = memoryUsage;
-        }
-    }
-    
-    public static BenchmarkResult benchmark(double[] array) {
-    
-        Bubble ordernarBubble = new Bubble();
-    
+    public static double benchmark(int[] array) {
         long startTime = System.nanoTime();
-        ordernarBubble.BubbleSort(array);
+        int sum = sumArray(array, 0);
         long endTime = System.nanoTime();
-        double elapsedTime = (endTime - startTime) / 1000000000.0; // Convert to seconds
-    
-        long memoryAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-    
-        return new BenchmarkResult(elapsedTime, memoryAfter);
+        double elapsedTime = (endTime - startTime) / 1000000000.0; // Converter para segundos
+        System.out.println("Soma dos elementos do array: " + sum);
+        return elapsedTime;
     }
-    
+
     public static void gerarCsv(List<Algoritmo> algoritmos, String nomeArquivo) throws IOException {
 
         try (RandomAccessFile raf = new RandomAccessFile(nomeArquivo + ".csv", "rw")) {
@@ -164,4 +162,6 @@ public class ArrayRecursiveBenchmark {
             this.memoria = memoria;
         }
     }
+
+
 }
