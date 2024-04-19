@@ -2,34 +2,50 @@ package Algoritmos;
 
 public class QuickSort {
     
-    public void quickSort(double[] vetor, int inicio, int fim) {
-		if (inicio < fim) {
-		  int posicaoPivo = separar(vetor, inicio, fim);
-		  quickSort(vetor, inicio, posicaoPivo - 1);
-		  quickSort(vetor, posicaoPivo + 1, fim);
-		}
+    public static void swap(double arr[], int i, int j) {
+		double temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 	  }
 	  
-	  public int separar(double[] vetor, int inicio, int fim) {
-		double pivo = vetor[inicio];
-		int i = inicio + 1, f = fim;
-		while (i <= f) {
-		  if (vetor[i] <= pivo) {
+	  public static int partition(double arr[], int low, int high) {
+		double pivot = arr[high];
+		int i = (low - 1);
+	  
+		for (int j = low; j <= high - 1; j++) {
+		  if (arr[j] <= pivot) {
 			i++;
-		  } else if (pivo < vetor[f]) {
-			f--;
-		  } else {
-			double troca = vetor[i];
-			vetor[i] = vetor[f];
-			vetor[f] = troca;
-			i++;
-			f--;
+			swap(arr, i, j);
 		  }
 		}
-		vetor[inicio] = vetor[f];
-		vetor[f] = pivo;
-		return f;
+	  
+		swap(arr, i + 1, high);
+		return (i + 1);
 	  }
 	  
+	  public void quickSort(double arr[], int low, int high) {
+		int stack[] = new int[high - low + 1];
+		int top = -1;
+	  
+		stack[++top] = low;
+		stack[++top] = high;
+	  
+		while (top >= 0) {
+		  high = stack[top--];
+		  low = stack[top--];
+	  
+		  int p = partition(arr, low, high);
+	  
+		  if (p - 1 > low) {
+			stack[++top] = low;
+			stack[++top] = p - 1;
+		  }
+	  
+		  if (p + 1 < high) {
+			stack[++top] = p + 1;
+			stack[++top] = high;
+		  }
+		}
+	  }
 }
   

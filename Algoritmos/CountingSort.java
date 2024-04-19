@@ -1,8 +1,10 @@
 package Algoritmos;
 
+import java.util.HashMap;
+
 public class CountingSort {
-    public void ordenacaoPorContagem(double[] array) {
-        
+    
+    public void countingSort(double[] array) {
         double minimo = array[0];
         double maximo = array[0];
         for (double valor : array) {
@@ -12,30 +14,26 @@ public class CountingSort {
             maximo = valor;
           }
         }
-      
-        int[] contagem = new int[(int) (maximo - minimo + 1)];
-      
-        for (int i = 0; i < contagem.length; i++) {
-          contagem[i] = 0;
-        }
-      
-        for (double valor : array) {
-          contagem[(int) (valor - minimo)]++;
-        }
-      
-        for (int i = 1; i < contagem.length; i++) {
-          contagem[i] += contagem[i - 1];
-        }
-      
-        double[] saida = new double[array.length];
-        for (int i = array.length - 1; i >= 0; i--) {
-          saida[contagem[(int) (array[i] - minimo)] - 1] = array[i];
-          contagem[(int) (array[i] - minimo)]--;
-        }
-      
+    
+        // Subtrair o mínimo de todos os elementos para garantir que todos sejam
+        // positivos
         for (int i = 0; i < array.length; i++) {
-          array[i] = saida[i];
+          array[i] -= minimo;
+        }
+    
+        // Usar HashMap para contar a ocorrência de cada valor
+        HashMap<Double, Integer> contagem = new HashMap<>();
+        for (double valor : array) {
+          contagem.put(valor, contagem.getOrDefault(valor, 0) + 1);
+        }
+    
+        // Reconstruir o array original com os valores ordenados
+        int index = 0;
+        for (double i = 0; i <= maximo - minimo; i++) {
+          int count = contagem.getOrDefault(i, 0);
+          for (int j = 0; j < count; j++) {
+            array[index++] = i + minimo; // Adicionar o mínimo de volta
+          }
         }
       }
-                
 }

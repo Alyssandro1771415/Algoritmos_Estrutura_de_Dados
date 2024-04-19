@@ -26,7 +26,7 @@ public class ArrayRecursiveBenchmark {
 
         ArrayList<double[]> vectors = processFiles.process_Files("./DataBases");
 
-        Bubble ordernarBubble = new Bubble();
+        CountingSort ordenarCountingSort = new CountingSort();
         ArrayList<Algoritmo> algoritmos = new ArrayList<>();
 
         String[] databaseNames = {
@@ -55,7 +55,7 @@ public class ArrayRecursiveBenchmark {
             System.out.printf("%s=> \n", databaseNames[vectors.indexOf(ds)]);
 
             long startTime = System.currentTimeMillis();
-            ordernarBubble.BubbleSort(ds);
+            ordenarCountingSort.countingSort(ds);
             long endTime = System.currentTimeMillis();
 
             long memoryAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
@@ -63,7 +63,7 @@ public class ArrayRecursiveBenchmark {
             System.out.println("\tMemory used: " + (memoryAfter) + " bytes");
             System.out.println("\tTotal time: " + (endTime - startTime) / 1000 + " segundos\n");
 
-            algoritmos.add(new Algoritmo("Bubble Sort", (endTime - startTime) / averageTime, (memoryAfter), databaseNames[vectors.indexOf(ds)]));
+            algoritmos.add(new Algoritmo("Counting Sort", (endTime - startTime) / averageTime, (memoryAfter), databaseNames[vectors.indexOf(ds)]));
 
         }
 
