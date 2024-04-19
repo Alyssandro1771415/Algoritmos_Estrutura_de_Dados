@@ -1,0 +1,112 @@
+Algoritmo,Base de Dados,Tempo,Memoria
+Bubble Sort,1M constantes,14514,496500736
+Bubble Sort,1M crescente,116118,347602944
+Bubble Sort,1M decrescente,2147483647,347604992
+Bubble Sort,1M desordem 10 finais,538783656,347604992
+Bubble Sort,1M desordem 10 iniciais,492648232,347604992
+Bubble Sort,1M desordenado,2147483647,348129280
+Bubble Sort,2M constantes,87089,348129280
+Bubble Sort,2M crescente,50801,348129280
+Bubble Sort,2M decrescente,2147483647,348129280
+Bubble Sort,2M desordem 10 finais,1971594455,348129280
+Bubble Sort,2M desordem 10 iniciais,1944183177,348129280
+Bubble Sort,2M desordenado,2147483647,348129280
+Bubble Sort,3M constantes,0,348129280
+Bubble Sort,3M crescente,0,348129280
+Bubble Sort,3M decrescente,629900573,348129280
+Bubble Sort,3M desordem 10 finais,2147483647,348129280
+Bubble Sort,3M desordem 10 iniciais,2147483647,348129280
+Bubble Sort,3M desordenado,2147483647,348129280
+Insertion Sort,1M constantes,273925,657981440
+Insertion Sort,1M crescente,136962,657981440
+Insertion Sort,1M decrescente,2147483647,350226432
+Insertion Sort,1M desordem 10 finais,66649546,350226432
+Insertion Sort,1M desordem 10 iniciais,65776408,350226432
+Insertion Sort,1M desordenado,2147483647,350226432
+Insertion Sort,2M constantes,256805,350226432
+Insertion Sort,2M crescente,85601,350226432
+Insertion Sort,2M decrescente,2147483647,350750720
+Insertion Sort,2M desordem 10 finais,265468241,350750720
+Insertion Sort,2M desordem 10 iniciais,157421674,350750720
+Insertion Sort,2M desordenado,2147483647,350750720
+Insertion Sort,3M constantes,0,350750720
+Insertion Sort,3M crescente,171203,350750720
+Insertion Sort,3M decrescente,717017633,350750720
+Insertion Sort,3M desordem 10 finais,364458140,350750720
+Insertion Sort,3M desordem 10 iniciais,357678479,350750720
+Insertion Sort,3M desordenado,2147483647,350750720
+Merge Sort,1M constantes,7164835,1024285224
+Merge Sort,1M crescente,8043956,906721744
+Merge Sort,1M decrescente,7296703,839215480
+Merge Sort,1M desordem 10 finais,5758241,794524112
+Merge Sort,1M desordem 10 iniciais,5054945,790329808
+Merge Sort,1M desordenado,8307692,750082600
+Merge Sort,2M constantes,12747252,629145600
+Merge Sort,2M crescente,11296703,1186173032
+Merge Sort,2M decrescente,9362637,629145600
+Merge Sort,2M desordem 10 finais,10241758,814447056
+Merge Sort,2M desordem 10 iniciais,9406593,1000569296
+Merge Sort,2M desordenado,14549450,1102279120
+Merge Sort,3M constantes,1186813,1212608592
+Merge Sort,3M crescente,1802197,682925040
+Merge Sort,3M decrescente,1362637,793178192
+Merge Sort,3M desordem 10 finais,14461538,645423112
+Merge Sort,3M desordem 10 iniciais,16879120,658009104
+Merge Sort,3M desordenado,25274725,703366488
+<<<<<<< HEAD
+Selection Sort,1M constantes,2147483647,495454208
+Selection Sort,1M crescente,2147483647,495978496
+Selection Sort,1M decrescente,2147483647,495978496
+Selection Sort,1M desordem 10 finais,2147483647,495978496
+Selection Sort,1M desordem 10 iniciais,2147483647,495978496
+Selection Sort,1M desordenado,2147483647,495978496
+Selection Sort,2M constantes,2147483647,496500736
+Selection Sort,2M crescente,2147483647,496500736
+Selection Sort,2M decrescente,2147483647,496500736
+Selection Sort,2M desordem 10 finais,2147483647,496500736
+Selection Sort,2M desordem 10 iniciais,2147483647,496500736
+Selection Sort,2M desordenado,2147483647,496500736
+Selection Sort,3M constantes,749898756,496500736
+Selection Sort,3M crescente,750737633,496500736
+Selection Sort,3M decrescente,746977147,496500736
+Selection Sort,3M desordem 10 finais,2147483647,496500736
+Selection Sort,3M desordem 10 iniciais,2147483647,496500736
+Selection Sort,3M desordenado,2147483647,496500736
+Quick Sort,1M constantes,2147483647,619710464
+Quick Sort,1M crescente,2147483647,623904768
+Quick Sort,1M decrescente,2147483647,628099072
+Quick Sort,1M desordem 10 finais,2147483647,632293376
+Quick Sort,1M desordem 10 iniciais,2147483647,636487680
+Quick Sort,1M desordenado,5677603,640681984
+Quick Sort,2M constantes,2147483647,649070592
+Quick Sort,2M crescente,2147483647,657459200
+Quick Sort,2M decrescente,2147483647,665847808
+Quick Sort,2M desordem 10 finais,2147483647,674236416
+Quick Sort,2M desordem 10 iniciais,2147483647,682625024
+Quick Sort,2M desordenado,7988587,691013632
+Quick Sort,3M constantes,1004422253,693110784
+Quick Sort,3M crescente,997460770,695207936
+Quick Sort,3M decrescente,953038516,697305088
+Quick Sort,3M desordem 10 finais,2147483647,709888000
+Quick Sort,3M desordem 10 iniciais,2147483647,722470912
+Quick Sort,3M desordenado,12496433,735053824
+Counting Sort,1M constantes,1718563,499124224
+Counting Sort,1M crescente,4679258,624953344
+Counting Sort,1M decrescente,3607282,750782464
+Counting Sort,1M desordem 10 finais,2147483647,851999248
+Counting Sort,1M desordem 10 iniciais,1397992172,652528640
+Counting Sort,1M desordenado,1029640973,478458880
+Counting Sort,2M constantes,1020929,606911488
+Counting Sort,2M crescente,2212012,854375424
+Counting Sort,2M decrescente,7384720,624429056
+Counting Sort,2M desordem 10 finais,1538046622,754921488
+Counting Sort,2M desordem 10 iniciais,1500374340,624432128
+Counting Sort,2M desordenado,1551948272,1265113616
+Counting Sort,3M constantes,425387,1283987984
+Counting Sort,3M crescente,901820,1322258960
+Counting Sort,3M decrescente,816743,1360534032
+Counting Sort,3M desordem 10 finais,1964880040,1158055440
+Counting Sort,3M desordem 10 iniciais,1856474391,1123702784
+Counting Sort,3M desordenado,2147483647,807020048
+=======
+>>>>>>> 6c4a98708969da43cf0546ed94ab73db7b373889
